@@ -1,1 +1,15 @@
 <h1><%= @student.to_s %></h1>
+<!-- <label>If checked, active status is true:</label> -->
+
+<% if @student.active == true %>
+  <%= "This student is currently active." %>
+<% else %>
+  <%= "This student is currently inactive." %>
+<% end %>
+
+<%= link_to "Change Active Status", activate_student_path(@student) %>
+
+
+<%= button_to [:activate, @student] do %>
+  Change active status for <strong><%= @student.to_s %></strong>
+<% end %>
